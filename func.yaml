@@ -1,0 +1,9 @@
+apiVersion: serverless.knative.dev/v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  template:
+    spec:
+      containers:
+        - image: quay.io/redis/redis:latest
