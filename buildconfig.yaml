@@ -1,0 +1,19 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: my-nodejs-build
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/username/repository.git
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: node:18-alpine
+  output:
+    to:
+      kind: ImageStreamTag
+      name: my-nodejs-app:latest
